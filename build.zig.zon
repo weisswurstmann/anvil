@@ -1,0 +1,7 @@
+.{
+    .name = .anvil,
+    .version = "0.1.0",
+    .fingerprint = 0x19cec0af8afcdb4c,
+    .minimum_zig_version = "0.15.2",
+    .paths = .{""},
+}
