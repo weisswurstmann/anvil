@@ -16,3 +16,5 @@ zig build test     # run the full test suite
 
 ## ISA overview
 
+Anvil has 16 general-purpose registers `r0`–`r15`; `a0`–`a3` are aliases for `r0`–`r3` (syscall arguments and return value). Instructions include arithmetic (`add`, `sub`, `mul`, `div`, `mod`), logic (`and`, `or`, `xor`, `not`), moves (`mov`, `load`, `store`), control flow (`jmp`, `je`, `jne`, `jlt`, `jle`, `jgt`, `jge`, `call`, `ret`), address loading (`lea`), and `halt` / `syscall`.
+
