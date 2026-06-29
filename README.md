@@ -20,3 +20,5 @@ Anvil has 16 general-purpose registers `r0`–`r15`; `a0`–`a3` are aliases for
 
 Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 bytes, little-endian) so the ASCII bytes sit contiguously in the heap buffer.
 
+## Syscall table
+
