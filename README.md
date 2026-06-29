@@ -24,3 +24,12 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ### Core (0x00–0x05)
 
+| Hex  | Dec | Name        | Description                                      |
+|------|-----|-------------|--------------------------------------------------|
+| 0x00 |   0 | `exit`      | `a0` = exit code; halt the VM                    |
+| 0x01 |   1 | `print_int` | Print signed decimal of `a0` + newline to stdout |
+| 0x02 |   2 | `write`     | Write `a2` bytes from `mem[a1]` to fd `a0`       |
+| 0x03 |   3 | `read`      | Read up to `a2` bytes from fd `a0` into `mem[a1]`; `r0` = bytes read |
+| 0x04 |   4 | `alloc`     | Allocate `a0` bytes from the bump heap; `r0` = address |
+| 0x05 |   5 | `free`      | Release allocation at `a0` (best-effort)          |
+
