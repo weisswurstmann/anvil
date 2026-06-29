@@ -35,3 +35,13 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ### Database (0x20–0x26)
 
+| Hex  | Dec | Name          | Description                                              |
+|------|-----|---------------|----------------------------------------------------------|
+| 0x20 |  32 | `db_open`     | Open KV store at path `mem[a0..a0+a1]`; `r0` = 0 or -1  |
+| 0x21 |  33 | `db_set`      | Set key `mem[a0..a0+a1]` to value `mem[a2..a2+a3]`       |
+| 0x22 |  34 | `db_get`      | Get key into `mem[a2..a2+a3]`; `r0` = full length or -1  |
+| 0x23 |  35 | `db_del`      | Delete key `mem[a0..a0+a1]`; `r0` = 0 or -1              |
+| 0x24 |  36 | `db_close`    | Close the open KV store                                   |
+| 0x25 |  37 | `tbl_insert`  | Insert record into named table; `r0` = new row id or -1  |
+| 0x26 |  38 | `tbl_get`     | Retrieve row by id; `r0` = record length or -1            |
+
