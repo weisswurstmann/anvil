@@ -1,0 +1,7 @@
+# Zig build artifacts
+zig-out/
+.zig-cache/
+
+# editor / OS cruft
+*.tmp
+.DS_Store
