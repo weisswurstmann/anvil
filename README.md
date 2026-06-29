@@ -18,3 +18,5 @@ zig build test     # run the full test suite
 
 Anvil has 16 general-purpose registers `r0`–`r15`; `a0`–`a3` are aliases for `r0`–`r3` (syscall arguments and return value). Instructions include arithmetic (`add`, `sub`, `mul`, `div`, `mod`), logic (`and`, `or`, `xor`, `not`), moves (`mov`, `load`, `store`), control flow (`jmp`, `je`, `jne`, `jlt`, `jle`, `jgt`, `jge`, `call`, `ret`), address loading (`lea`), and `halt` / `syscall`.
 
+Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 bytes, little-endian) so the ASCII bytes sit contiguously in the heap buffer.
+
