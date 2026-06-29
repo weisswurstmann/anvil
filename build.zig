@@ -15,4 +15,3 @@ pub fn build(b: *std.Build) void {
     const tests = b.addTest(.{ .root_module = mod });
     b.step("test", "Run tests").dependOn(&b.addRunArtifact(tests).step);
 }
-
