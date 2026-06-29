@@ -8,3 +8,11 @@ Anvil is a register-VM assembly language for writing HTTP backends directly in a
 zig build          # build the anvil binary
 zig build test     # run the full test suite
 
+./zig-out/bin/anvil asm examples/hello.anvil -o hello.avb   # assemble source → image
+./zig-out/bin/anvil dis hello.avb                            # disassemble image
+./zig-out/bin/anvil run examples/hello.anvil                 # run source directly
+./zig-out/bin/anvil run hello.avb                            # run pre-assembled image
+```
+
+## ISA overview
+
