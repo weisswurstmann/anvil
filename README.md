@@ -33,3 +33,5 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 | 0x04 |   4 | `alloc`     | Allocate `a0` bytes from the bump heap; `r0` = address |
 | 0x05 |   5 | `free`      | Release allocation at `a0` (best-effort)          |
 
+### Database (0x20–0x26)
+
