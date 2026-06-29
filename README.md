@@ -22,3 +22,5 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ## Syscall table
 
+### Core (0x00–0x05)
+
