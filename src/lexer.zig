@@ -16,3 +16,14 @@ test "tokenize mov instruction" {
     try std.testing.expectEqual(Kind.eof, toks[5].kind);
 }
 
+test "comments and labels" {
+    const toks = try tokenize(std.testing.allocator, "_start:  ; go\n.text\n");
+    defer std.testing.allocator.free(toks);
+    try std.testing.expectEqual(Kind.label_colon, toks[0].kind);
+    try std.testing.expectEqualStrings("_start", toks[0].text);
+    try std.testing.expectEqual(Kind.newline, toks[1].kind);
+    try std.testing.expectEqual(Kind.directive, toks[2].kind);
+    try std.testing.expectEqualStrings(".text", toks[2].text);
+}
+
+
