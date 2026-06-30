@@ -87,3 +87,31 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ## Project layout
 
+```
+src/
+  lexer.zig          tokenizer
+  token.zig          token types
+  parser.zig         AST construction and semantic checks
+  ast.zig            AST node types
+  isa.zig            instruction set definitions and encoding
+  assembler.zig      assembler (AST → instruction image)
+  image.zig          .avb binary image read/write (AVB1 magic)
+  disasm.zig         disassembler (image → text)
+  vm.zig             register VM core (fetch/decode/execute)
+  value.zig          register file and flags
+  heap.zig           bump-allocator heap (1 MiB)
+  intrinsics.zig     syscall dispatch (all syscalls wired here)
+  macro.zig          .macro/.endmacro preprocessor + .include resolver
+  json.zig           JSON value tree (parse / stringify)
+  json_store.zig     per-VM JSON handle store
+  http.zig           HTTP/1.1 request parser and response serializer
+  http_ctx.zig       per-request HTTP context (method, path, body, headers)
+  server.zig         TCP accept loop, per-request VM re-entry, requestStop
+  cli.zig            command-line interface (asm / dis / run)
+  main.zig           binary entry point
+  db/
+    store.zig        embedded KV store (log-structured, file-backed)
+    log.zig          append-only write log
+    index.zig        in-memory key index
+    table.zig        row table built on top of the KV store
+
