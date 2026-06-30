@@ -26,3 +26,19 @@ test "comments and labels" {
     try std.testing.expectEqualStrings(".text", toks[2].text);
 }
 
+test "negative number literal" {
+    const toks = try tokenize(std.testing.allocator, "mov r0, -5\n");
+    defer std.testing.allocator.free(toks);
+    try std.testing.expectEqual(Kind.number, toks[3].kind);
+    try std.testing.expectEqualStrings("-5", toks[3].text);
+}
+test "minus then non-digit is not a number" {
+    // a bare '-' (no digit after) must NOT become a number token
+    const toks = try tokenize(std.testing.allocator, "mov r0, - 5\n");
+    defer std.testing.allocator.free(toks);
+    // toks[3] should be the number 5 (the lone '-' is skipped as today)
+    try std.testing.expectEqual(Kind.number, toks[3].kind);
+    try std.testing.expectEqualStrings("5", toks[3].text);
+}
+
+
