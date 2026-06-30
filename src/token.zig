@@ -19,4 +19,3 @@ pub const Token = struct {
     line: u32,
 };
 
-
