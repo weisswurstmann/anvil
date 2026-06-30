@@ -12,3 +12,11 @@ pub const Regs = struct {
     }
 };
 
+test "regs get/set and flags default" {
+    var regs = Regs{};
+    try std.testing.expectEqual(@as(Word, 0), regs.get(3));
+    regs.set(3, -7);
+    try std.testing.expectEqual(@as(Word, -7), regs.get(3));
+    const f = Flags{};
+    try std.testing.expect(!f.zero and !f.sign);
+}
