@@ -1,1 +1,2 @@
-cnst std = @import("std");
+const std = @import("std");
+
