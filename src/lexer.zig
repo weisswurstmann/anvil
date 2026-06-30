@@ -41,3 +41,8 @@ test "minus then non-digit is not a number" {
     try std.testing.expectEqualStrings("5", toks[3].text);
 }
 
+pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
+    var list = std.ArrayList(Token){};
+    errdefer list.deinit(alloc);
+
+
