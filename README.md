@@ -75,3 +75,5 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 | 0x47 |  71 | `resp_body`    | Set response body from `mem[a0..a0+a1]`                       |
 | 0x48 |  72 | `http_stop`    | Signal the serve loop to stop after this request               |
 
+## Examples
+
