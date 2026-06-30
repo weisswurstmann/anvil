@@ -63,3 +63,15 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ### HTTP (0x40–0x48)
 
+| Hex  | Dec | Name           | Description                                                   |
+|------|-----|----------------|---------------------------------------------------------------|
+| 0x40 |  64 | `http_serve`   | Bind port `a0` (0 = ephemeral), enter accept loop with handler at `a1`; re-enters handler per request; `r0` = 0 on stop |
+| 0x41 |  65 | `http_method`  | `r0` = method code (0=GET 1=POST 2=PUT 3=DELETE 4=PATCH 5=HEAD 6=other) |
+| 0x42 |  66 | `http_path`    | Copy request path into `mem[a0..a0+a1]`; `r0` = full path length |
+| 0x43 |  67 | `http_body`    | Copy request body into `mem[a0..a0+a1]`; `r0` = full body length |
+| 0x44 |  68 | `http_header`  | Look up request header name at `mem[a0..a0+a1]`; `r0` = value length or -1 |
+| 0x45 |  69 | `resp_status`  | Set response status code to `a0` (default 200)                |
+| 0x46 |  70 | `resp_header`  | Append response header (name at `a0`/`a1`, value at `a2`/`a3`) |
+| 0x47 |  71 | `resp_body`    | Set response body from `mem[a0..a0+a1]`                       |
+| 0x48 |  72 | `http_stop`    | Signal the serve loop to stop after this request               |
+
