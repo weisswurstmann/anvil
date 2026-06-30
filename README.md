@@ -47,3 +47,17 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ### JSON (0x30–0x3A)
 
+| Hex  | Dec | Name            | Description                                               |
+|------|-----|-----------------|-----------------------------------------------------------|
+| 0x30 |  48 | `json_parse`    | Parse JSON text from `mem[a0..a0+a1]`; `r0` = handle      |
+| 0x31 |  49 | `json_stringify`| Serialize handle `a0` into `mem[a1..a1+a2]`; `r0` = length |
+| 0x32 |  50 | `json_obj`      | Create empty JSON object; `r0` = handle                   |
+| 0x33 |  51 | `json_arr`      | Create empty JSON array; `r0` = handle                    |
+| 0x34 |  52 | `json_set`      | Set key (ptr/len in `a1`/`a2`) on object `a0` to val `a3` |
+| 0x35 |  53 | `json_push`     | Append value `a1` to array `a0`                           |
+| 0x36 |  54 | `json_get`      | Get key (ptr/len in `a1`/`a2`) from object `a0`; `r0` = handle |
+| 0x37 |  55 | `json_str`      | Create JSON string from `mem[a0..a0+a1]`; `r0` = handle   |
+| 0x38 |  56 | `json_num`      | Create JSON number from integer `a0`; `r0` = handle        |
+| 0x39 |  57 | `json_get_num`  | Extract i64 value from number handle `a0`; `r0` = value    |
+| 0x3A |  58 | `json_get_str`  | Copy string from handle `a0` into `mem[a1..a1+a2]`; `r0` = length |
+
