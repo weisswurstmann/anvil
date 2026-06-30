@@ -77,3 +77,11 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 
 ## Examples
 
+| Example            | What it does                                                        | Run                                          |
+|--------------------|---------------------------------------------------------------------|----------------------------------------------|
+| `hello.anvil`      | Computes 42 + 8, asserts equality, prints 42                        | `anvil run examples/hello.anvil`             |
+| `kv.anvil`         | Opens a KV store, writes `"hi"` under key `"k"`, reads it back      | `anvil run examples/kv.anvil`                |
+| `json.anvil`       | Builds `{"x":42}` in memory and writes it to stdout                 | `anvil run examples/json.anvil`              |
+| `server.anvil`     | HTTP server; `/health` → `ok`, `/__stop` shuts down                 | `anvil run examples/server.anvil`            |
+| `notes_api.anvil`  | Capstone: JSON over HTTP; `/note` → `{"msg":"hi"}`, `/__stop` exits | `anvil run examples/notes_api.anvil`         |
+
