@@ -13,3 +13,10 @@ pub const Kind = enum {
     eof,
 };
 
+pub const Token = struct {
+    kind: Kind,
+    text: []const u8,
+    line: u32,
+};
+
+
