@@ -121,3 +121,6 @@ std/
   json.anvil         macros over JSON syscalls (json_obj, json_set, json_stringify, …)
   http.anvil         macros over HTTP syscalls (http_path, resp_status, resp_body, …)
 
+examples/            runnable .anvil programs (see table above)
+```
+
