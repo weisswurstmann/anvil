@@ -85,3 +85,5 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 | `server.anvil`     | HTTP server; `/health` → `ok`, `/__stop` shuts down                 | `anvil run examples/server.anvil`            |
 | `notes_api.anvil`  | Capstone: JSON over HTTP; `/note` → `{"msg":"hi"}`, `/__stop` exits | `anvil run examples/notes_api.anvil`         |
 
+## Project layout
+
