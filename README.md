@@ -45,3 +45,5 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 | 0x25 |  37 | `tbl_insert`  | Insert record into named table; `r0` = new row id or -1  |
 | 0x26 |  38 | `tbl_get`     | Retrieve row by id; `r0` = record length or -1            |
 
+### JSON (0x30–0x3A)
+
