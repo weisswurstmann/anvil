@@ -115,3 +115,9 @@ src/
     index.zig        in-memory key index
     table.zig        row table built on top of the KV store
 
+std/
+  prelude.anvil      common utility macros
+  db.anvil           macros over DB syscalls (db_open, db_set, db_get, …)
+  json.anvil         macros over JSON syscalls (json_obj, json_set, json_stringify, …)
+  http.anvil         macros over HTTP syscalls (http_path, resp_status, resp_body, …)
+
