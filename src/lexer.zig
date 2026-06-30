@@ -16,4 +16,3 @@ test "tokenize mov instruction" {
     try std.testing.expectEqual(Kind.eof, toks[5].kind);
 }
 
-
