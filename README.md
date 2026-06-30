@@ -61,3 +61,5 @@ Strings are built by word-packing: `store [rX+off], rY` writes an i64 word (8 by
 | 0x39 |  57 | `json_get_num`  | Extract i64 value from number handle `a0`; `r0` = value    |
 | 0x3A |  58 | `json_get_str`  | Copy string from handle `a0` into `mem[a1..a1+a2]`; `r0` = length |
 
+### HTTP (0x40–0x48)
+
