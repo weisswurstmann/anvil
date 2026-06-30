@@ -126,3 +126,4 @@ examples/            runnable .anvil programs (see table above)
 
 ## Requirements
 
+Zig 0.15.2, no external dependencies.
