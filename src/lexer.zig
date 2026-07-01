@@ -65,3 +65,12 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+        // Comment: skip to end of line
+        if (c == ';') {
+            while (i < src.len and src[i] != '\n') {
+                i += 1;
+            }
+            continue;
+        }
+
+
