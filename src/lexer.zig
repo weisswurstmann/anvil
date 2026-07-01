@@ -51,3 +51,10 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
     while (i < src.len) {
         const c = src[i];
 
+        // Skip spaces and tabs
+        if (c == ' ' or c == '\t') {
+            i += 1;
+            continue;
+        }
+
+
