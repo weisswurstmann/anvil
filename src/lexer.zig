@@ -57,3 +57,4 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+// Newline if (c == '\n') { try list.append(alloc, Token{ .kind = .newline, .text = src[i .. i + 1], .line = lin }); line += 1; i += 1; continue; }
