@@ -45,3 +45,7 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
     var list = std.ArrayList(Token){};
     errdefer list.deinit(alloc);
 
+    var i: usize = 0;
+    var line: u32 = 1;
+
+
