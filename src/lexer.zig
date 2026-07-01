@@ -48,3 +48,7 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
     var i: usize = 0;
     var line: u32 = 1;
 
+    while (i < src.len) {
+        const c = src[i];
+
+
