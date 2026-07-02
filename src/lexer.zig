@@ -108,3 +108,23 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+        // Negative number: '-' immediately followed by a digit
+        if (c == '-' and i + 1 < src.len and std.ascii.isDigit(src[i + 1])) {
+            const start = i;
+            i += 1; // consume '-'
+            const next = src[i];
+            if (next == '0' and i + 1 < src.len and (src[i + 1] == 'x' or src[i + 1] == 'X')) {
+                i += 2; // consume '0x'
+                while (i < src.len and std.ascii.isHex(src[i])) {
+                    i += 1;
+                }
+            } else {
+                while (i < src.len and std.ascii.isDigit(src[i])) {
+                    i += 1;
+                }
+            }
+            try list.append(alloc, Token{ .kind = .number, .text = src[start..i], .line = line });
+            continue;
+        }
+
+
