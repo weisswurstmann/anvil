@@ -95,3 +95,17 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+        // String literal
+        if (c == '"') {
+            const start = i;
+            i += 1;
+            while (i < src.len and src[i] != '"') {
+                if (src[i] == '\\') i += 1; // skip escape
+                i += 1;
+            }
+            if (i < src.len) i += 1; // consume closing "
+            try list.append(alloc, Token{ .kind = .str, .text = src[start..i], .line = line });
+            continue;
+        }
+
+
