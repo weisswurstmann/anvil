@@ -73,3 +73,26 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+        // Punctuation
+        if (c == ',') {
+            try list.append(alloc, Token{ .kind = .comma, .text = src[i .. i + 1], .line = line });
+            i += 1;
+            continue;
+        }
+        if (c == '[') {
+            try list.append(alloc, Token{ .kind = .lbracket, .text = src[i .. i + 1], .line = line });
+            i += 1;
+            continue;
+        }
+        if (c == ']') {
+            try list.append(alloc, Token{ .kind = .rbracket, .text = src[i .. i + 1], .line = line });
+            i += 1;
+            continue;
+        }
+        if (c == '+') {
+            try list.append(alloc, Token{ .kind = .plus, .text = src[i .. i + 1], .line = line });
+            i += 1;
+            continue;
+        }
+
+
