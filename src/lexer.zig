@@ -127,3 +127,20 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+        // Number: decimal or 0x hex
+        if (std.ascii.isDigit(c)) {
+            const start = i;
+            if (c == '0' and i + 1 < src.len and (src[i + 1] == 'x' or src[i + 1] == 'X')) {
+                i += 2;
+                while (i < src.len and std.ascii.isHex(src[i])) {
+                    i += 1;
+                }
+            } else {
+                while (i < src.len and std.ascii.isDigit(src[i])) {
+                    i += 1;
+                }
+            }
+            try list.append(alloc, Token{ .kind = .number, .text = src[start..i], .line = line });
+            continue;
+        }
+
