@@ -144,3 +144,14 @@ pub fn tokenize(alloc: std.mem.Allocator, src: []const u8) ![]Token {
             continue;
         }
 
+        // Directive: starts with '.'
+        if (c == '.') {
+            const start = i;
+            i += 1;
+            while (i < src.len and (std.ascii.isAlphanumeric(src[i]) or src[i] == '_')) {
+                i += 1;
+            }
+            try list.append(alloc, Token{ .kind = .directive, .text = src[start..i], .line = line });
+            continue;
+        }
+
